@@ -1,0 +1,36 @@
+{
+  "name": "school-manager-desktop",
+  "version": "1.0.0",
+  "description": "School Manager as a Windows, Mac or Linux desktop app.",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^32.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "com.schoolmanager.app",
+    "productName": "School Manager",
+    "asar": true,
+    "icon": "icons/icon-512.png",
+    "files": ["main.js", "icons/**/*"],
+    "extraResources": [
+      { "from": "../server.js", "to": "server/server.js" },
+      { "from": "../db.js", "to": "server/db.js" },
+      { "from": "../auth.js", "to": "server/auth.js" },
+      { "from": "../routes.js", "to": "server/routes.js" },
+      { "from": "../seed-demo.js", "to": "server/seed-demo.js" },
+      { "from": "../package.json", "to": "server/package.json" },
+      { "from": "../node_modules", "to": "server/node_modules" },
+      { "from": "../public", "to": "server/public" }
+    ],
+    "win": { "target": "nsis" },
+    "mac": { "target": "dmg", "category": "public.app-category.education" },
+    "linux": { "target": ["AppImage", "deb"], "category": "Education" },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true }
+  }
+}
