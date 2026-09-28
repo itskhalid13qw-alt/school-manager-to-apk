@@ -1,0 +1,15 @@
+services:
+  school:
+    build: .
+    container_name: school-manager
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      TZ: Asia/Karachi
+      # Password for the first "admin" account. Only used the very first time the database is created.
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin123}
+      # Optional: fixed secret for login tokens. If empty, one is generated and saved in the data folder.
+      JWT_SECRET: ${JWT_SECRET:-}
+    volumes:
+      - ./data:/app/data   # your database lives here - back this folder up
