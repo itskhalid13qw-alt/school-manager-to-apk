@@ -1,18 +1,22 @@
 {
-  "name": "school-manager",
+  "name": "school-manager-mobile",
   "version": "1.0.0",
-  "description": "Full-stack school management system: students, teachers, classes, attendance, exams, results and fees.",
-  "main": "server.js",
+  "private": true,
+  "description": "School Manager as an Android and iOS app (wraps the school's server address).",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js",
-    "seed:demo": "node seed-demo.js"
+    "sync": "cap sync",
+    "android": "cap open android",
+    "ios": "cap open ios"
   },
-  "engines": { "node": ">=22" },
   "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "better-sqlite3": "^12.11.1",
-    "express": "^4.19.2",
-    "jsonwebtoken": "^9.0.2"
+    "@capacitor/core": "^6.1.2",
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/ios": "^6.1.2",
+    "@capacitor/app": "^6.0.1",
+    "@capacitor/splash-screen": "^6.0.2",
+    "@capacitor/status-bar": "^6.0.1"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.1.2"
   }
 }
