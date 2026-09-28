@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">School Manager</string>
+    <string name="title_activity_main">School Manager</string>
+    <string name="package_name">com.schoolmanager.app</string>
+    <string name="custom_url_scheme">com.schoolmanager.app</string>
+</resources>
